@@ -82,7 +82,7 @@
 <meta name="description" content="Recording life and thinking.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Moruy Blog">
-<meta property="og:url" content="http://blog.mmda.info/tags/Linux/index.html">
+<meta property="og:url" content="http://blog.mmda.info/tags/linux/index.html">
 <meta property="og:site_name" content="Moruy Blog">
 <meta property="og:description" content="Recording life and thinking.">
 <meta property="og:locale" content="zh-Hans">
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.mmda.info/tags/Linux/"/>
+  <link rel="canonical" href="http://blog.mmda.info/tags/linux/"/>
 
 
 
 
 
-  <title>标签: Linux | Moruy Blog</title>
+  <title>标签: linux | Moruy Blog</title>
   
 
 
@@ -278,7 +278,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>Linux<small>标签</small>
+        <h2>linux<small>标签</small>
         </h2>
       </div>
 
@@ -290,37 +290,9 @@
 
       <h3 class="post-title">
         
-            <a class="post-title-link" href="/blog/2018/05/17/ubuntu-ppa-mirror/" itemprop="url">
+            <a class="post-title-link" href="/blog/2011/10/07/Open-source-Mirror-List-in-China/" itemprop="url">
               
-                <span itemprop="name">Ubuntu ppa 私有仓库加速</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-17T14:27:49+08:00"
-              content="2018-05-17" >
-          05-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/05/16/docker-create-tap-device/" itemprop="url">
-              
-                <span itemprop="name">docker 容器添加 tap 支持</span>
+                <span itemprop="name">Linux Open source Mirror List in China</span>
               
             </a>
         
@@ -328,37 +300,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-16T21:49:10+08:00"
-              content="2018-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2018/03/24/linux-split-large-file/" itemprop="url">
-              
-                <span itemprop="name">Linux 大文件分割</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-24T07:51:52+08:00"
-              content="2018-03-24" >
-          03-24
+              datetime="2011-10-07T10:08:44+08:00"
+              content="2011-10-07" >
+          10-07
         </time>
       </div>
 
@@ -375,10 +319,6 @@
   
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/tags/Linux/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/tags/Linux/page/5/">5</a><a class="extend next" rel="next" href="/blog/tags/Linux/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -648,21 +588,6 @@
 
 
 
-  
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
-        av: AV,
-        el: '#vcomments' ,
-        verify: false,
-        notify: false,
-        app_id: 'T9tmfjFTxy6A5Dz1wq6BtEN0',
-        app_key: 'F97RNRxIDAqL1bNn3OVg7HVn-gzGzoHsz',
-        placeholder: '我要吐槽'
-    });
-  </script>
-
 
 
   
@@ -929,6 +854,80 @@
                 } else if (resultLeft.hitCount !== resultRight.hitCount) {
                   return resultRight.hitCount - resultLeft.hitCount;
                 } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+           } else {
                   return resultRight.id - resultLeft.id;
                 }
               });
